@@ -3,8 +3,11 @@ package com.example.simplelistview;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
         // Setting adapter on list View
 
         list.setAdapter(adapter);
+
+        // Setting click on the items of the list
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(MainActivity.this, "" +city[i], Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }
